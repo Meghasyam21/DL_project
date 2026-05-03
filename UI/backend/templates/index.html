@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOLOv8 Security Frontend</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>YOLOv8 Security Detection</h1>
+
+    <section>
+      <h2>Alert Registration</h2>
+      <button id="registerEmail">Register Email</button>
+      <button id="registerPhone">Register Phone</button>
+      <button id="getContacts">View Registered Contacts</button>
+    </section>
+
+    <section>
+      <h2>Upload Image</h2>
+      <input id="imageInput" type="file" accept="image/*" />
+      <button id="detectImage">Detect Image</button>
+      <div class="media-frame hidden" id="imageFrame">
+        <img id="imagePreview" alt="Selected upload preview" />
+        <canvas id="imageCanvas"></canvas>
+      </div>
+    </section>
+
+    <section>
+      <h2>Upload Video</h2>
+      <input id="videoInput" type="file" accept="video/*" />
+      <button id="detectVideo">Detect Video</button>
+      <div class="media-frame hidden" id="videoFrame">
+        <video id="videoPreview" controls muted playsinline></video>
+        <canvas id="videoCanvas"></canvas>
+      </div>
+    </section>
+
+    <section>
+      <h2>Live Webcam</h2>
+      <button id="startWebcam">Start Webcam</button>
+      <button id="stopWebcam">Stop Webcam</button>
+      <div class="media-frame hidden" id="webcamFrame">
+        <video id="webcamVideo" autoplay muted playsinline></video>
+        <canvas id="webcamCanvas"></canvas>
+      </div>
+    </section>
+
+    <section>
+      <h2>CCTV Stream</h2>
+      <input id="cctvUrl" type="text" placeholder="Enter MJPEG / HLS / video stream URL" />
+      <button id="startCCTV">Start CCTV</button>
+      <button id="stopCCTV">Stop CCTV</button>
+      <div class="media-frame hidden" id="cctvFrame">
+        <video id="cctvVideo" controls autoplay muted playsinline crossorigin="anonymous"></video>
+        <canvas id="cctvCanvas"></canvas>
+      </div>
+    </section>
+
+    <section>
+      <h2>Logs</h2>
+      <pre id="logOutput"></pre>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
